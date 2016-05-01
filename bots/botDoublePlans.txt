@@ -5,3 +5,5 @@ Implement the following betting strategies
 	D'Alembert
 	Oscar's Grind
 Create a function to allow a user to donate x coins per win
+Clean up code
+Add function to exponentiate wagers

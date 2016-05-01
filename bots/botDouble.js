@@ -58,7 +58,7 @@ function optionsAdd() {
     opts.innerHTML = '' +
         '<div class="row">' +
             '<div class="col-lg-6">' +
-				'<h2>DoubleDong<sup>&trade;</sup> Bot</h2><small>Automated bot for betting on csgodouble.com<br>Written by <a href="https://steamcommunity.com/profiles/76561198098227534/" target="_blank"><b>&#9733; Dong</b></a><br>Check <a href="https://github.com/ajkreamer/code/blob/master/botDouble.js">GitHub</a> to make sure version ' + versionId + ' is the latest version of the DoubleDong bot</small><br><br>' +
+				'<h2>DoubleDong<sup>&trade;</sup> Bot</h2><small>Automated bot for betting on csgodouble.com<br>Written by <a href="https://steamcommunity.com/profiles/76561198098227534/" target="_blank"><b>&#9733; Dong</b></a><br>Check <a href="https://github.com/ajkreamer/javascript/blob/master/bots/botDouble.js">GitHub</a> to make sure version ' + versionId + ' is the latest version of the DoubleDong bot</small><br><br>' +
 				'Bot controls:<div class="form-group">' +
                     '<div class="btn-group">' +
                         '<button type="button" class="btn btn-success" id="modeStart" onclick=modeSet(2)>Start</button>' +
