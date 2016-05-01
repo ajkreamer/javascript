@@ -1,0 +1,7 @@
+Plans for DoubleDong bot in the future:
+
+Implement the following betting strategies
+	Fibonacci
+	D'Alembert
+	Oscar's Grind
+Create a function to allow a user to donate x coins per win
