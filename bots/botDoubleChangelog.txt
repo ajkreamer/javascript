@@ -1,0 +1,8 @@
+Version 1.1.1:
+	Theme change is now optional in order to add flexibility with other pre-existing themes
+
+Version 1.1.0:
+	Reworked the layout of forms
+
+Version 1.0.0:
+	First release
