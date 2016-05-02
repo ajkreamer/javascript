@@ -7,3 +7,5 @@ Implement the following betting strategies
 Create a function to allow a user to donate x coins per win
 Clean up code
 Add function to exponentiate wagers
+Reorganize bot layout
+Edit coloring scheme to be flexible with other schemes users may download and use
