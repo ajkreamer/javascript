@@ -1,3 +1,6 @@
+Version 1.1.2:
+	Hotfix for dropdown menus not displaying properly
+
 Version 1.1.1:
 	Theme change is now optional in order to add flexibility with other pre-existing themes
 
