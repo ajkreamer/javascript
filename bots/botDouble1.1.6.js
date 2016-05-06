@@ -35,7 +35,7 @@ var rollid = 0,
 	colorMode = 0,
 	strat = 0,
 	wager = [0, 0, 0],
-	versionId = "1.1.7";
+	versionId = "1.1.6";
 
 function themeSet(i) {
 	var style;
@@ -88,13 +88,7 @@ function optionsAdd() {
 				'<div class="form-group">' +
 					'<div class="input-group">' +
 						'<div class="input-group-addon" id="betOpts">Minimum bet</div>' +
-						'<input type="number" class="form-control" placeholder="Calculating base value..." id="wagerBase" disabled>' +
-					'</div>' +
-				'</div>' +
-				'<div class="form-group">' +
-					'<div class="input-group">' +
-						'<div class="input-group-addon" id="betOpts">Factor</div>' +
-						'<input type="number" class="form-control" placeholder="Exponential Factor" id="wagerExpo">' +
+						'<input type="number" class="form-control" placeholder="Set base value" id="wagerBase">' +
 					'</div>' +
 				'</div>' +
 				'<div class="form-group">' +
@@ -114,7 +108,7 @@ function optionsAdd() {
 					'<ul class="dropdown-menu">' +
 						'<li><a href="#" onclick="betSet(0)">Red</a></li>' +
 						'<li><a href="#" onclick="betSet(1)">Black</a></li>' +
-						'<li><a href="#" onclick="betSet(2)">Opposite Last</a></li>' +
+						'<li><a href="#" onclick="betSet(2)">Rainbow</a></li>' +
 						'<li><a href="#" onclick="betSet(3)">Last Roll</a></li>' +
 						'<li><a href="#" onclick="betSet(4)">Random</a></li>' +
 					'</ul>' +
@@ -125,6 +119,7 @@ function optionsAdd() {
 					'<ul class="dropdown-menu">' +
 						'<li><a href="#" onclick="stratSet(0)">Static</a></li>' +
 						'<li><a href="#" onclick="stratSet(1)">Martingale</a></li>' +
+						'<li><a href="#" onclick="stratSet(5)">Martingale<sup>3</sup></a></li>' +
 						'<li class="disabled"><a href="#" onclick="stratSet(1)">Fibonacci</a></li>' +
 						'<li class="disabled"><a href="#" onclick="stratSet(1)">D\Alembert</a></li>' +
 						'<li class="disabled"><a href="#" onclick="stratSet(1)">Oscar\s Grind</a></li>' +
@@ -176,6 +171,7 @@ function stratSet(i) {
 	if (i == 2) document.getElementById('botStrat').innerHTML = 'Oscar\'s Grind';
 	if (i == 3) document.getElementById('botStrat').innerHTML = 'D\'Alembert';
 	if (i == 4) document.getElementById('botStrat').innerHTML = 'Fibonacci';
+	if (i == 5) document.getElementById('botStrat').innerHTML = 'Martingale<sup>3</sup>';
 	strat = i;
 	betBase = document.getElementById("wagerBase").value;
 	betBase = Number(betBase);
@@ -288,16 +284,8 @@ function botProcess() {
 		if (rollidNew > rollid) {
 			rollid = rollidNew;
 			roll = rollLast();
-			bbetBase = document.getElementById("wagerBase").value
-			bbetBase = Number(bbetBase);
-			if (!(bbetBase > 0)) {
-				betFactor = document.getElementById("wagerExpo").value;
-				betFactor = Number(betFactor);
-				document.getElementById("wagerBase").value = Math.pow(1, betFactor);
-			}
 			betBase = document.getElementById("wagerBase").value;
 			betBase = Number(betBase);
-			betBase = Math.pow(1, betBase);
 			child = 9;
 			last = document.getElementById('past').childNodes[child].innerHTML;
 			while (last == "0") {
@@ -451,9 +439,9 @@ function botProcess() {
 					wager[2] = 0;
 					betWagerGreen = 0;
 					if (document.getElementById("betGreen").checked == true) {
-						betWagerGreen = Math.ceil(betWager/7);
+						betWagerGreen = document.getElementById("wagerGreen").value;
+						if (strat == 5) betWagerGreen = Math.ceil(betWager/7);
 						document.getElementById("betAmount").value = betWagerGreen;
-						document.getElementById("wagerGreen").value = betWagerGreen;
 						$button = $("#panel0-0 .betButton");
 						$button.click();
 						wager[2] = Number(betWagerGreen);
