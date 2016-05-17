@@ -1,0 +1,29 @@
+Version 1.1.7:
+	Disabled outside interference for base bet values
+	Added function to exponentiate betting strategies in order to set minimum bet
+
+Version 1.1.6:
+	Disabled outside interference with color and green wager calculation
+
+Version 1.1.5:
+	Hotfix for green profit/loss calculation, no longer lose money on green bets
+
+Version 1.1.4:
+	Hotfix for greens being miscalculated as losses
+	Hotfix for Github link not opening in new tab
+
+Version 1.1.3:
+	Hotfix for color mode display error
+	Added martingalex3 betting strategy
+
+Version 1.1.2:
+	Hotfix for dropdown menus not displaying properly
+
+Version 1.1.1:
+	Theme change is now optional in order to add flexibility with other pre-existing themes
+
+Version 1.1.0:
+	Reworked the layout of forms
+
+Version 1.0.0:
+	First release
