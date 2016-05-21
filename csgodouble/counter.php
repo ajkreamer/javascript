@@ -418,6 +418,16 @@ function getDayRollMax($day) {
 			break;
 		case 204: $result = "309990";
 			break;
+		case 205: $result = "311447";
+			break;
+		case 206: $result = "312022";
+			break;
+		case 207: $result = "313290";
+			break;
+		case 208: $result = "314750";
+			break;
+		case 209: $result = "316196";
+			break;
 	endswitch;
 	
 	return $result;
@@ -832,6 +842,16 @@ function getDaySeed($day) {
 		case 203: $result = "37c9d529fda9abee7171c4baf4d2973d2d447ccaae8ffc5719e4fe83e9b9b883";
 			break;
 		case 204: $result = "f3b0039f57a852b0ef95935c53336ee549de17ae8e6617a5648a9ef0480b386f";
+			break;
+		case 205: $result = "4728786f034355a79b147c7b61dcd6ef7c0f37274b5deadfc1cb9abb13e3c998";
+			break;
+		case 206: $result = "57057777bd2ae564d06176823ee13a071f026679782f22f5bd950396e3766552";
+			break;
+		case 207: $result = "d8670bd6cc1c9aa0cd891d75f4dc37cc1284133c953be32294fbd715d8602c50";
+			break;
+		case 208: $result = "4c9624a82070ac2a464da81d1bcf7018a00a6eed38a3e6e24867bbf61d5caf82";
+			break;
+		case 209: $result = "760bdd3b8de55da991636c026088b2725506bfee59a63f823ec0765f4734f864";
 			break;
 	endswitch;
 	
@@ -1248,6 +1268,16 @@ function getDayLotto($day) {
 			break;
 		case 204: $result = "0109132937";
 			break;
+		case 205: $result = "1323263237";
+			break;
+		case 206: $result = "0111193034";
+			break;
+		case 207: $result = "0811212531";
+			break;
+		case 208: $result = "1012182731";
+			break;
+		case 209: $result = "2631343738";
+			break;
 	endswitch;
 	
 	return $result;
@@ -1274,7 +1304,7 @@ $i = 1;
 $iRoll = array(0);
 
 $iDay = 1;
-$iDayLimit = 204; //Increment daily or run script on page
+$iDayLimit = 209; //Increment daily or run script on page
 $iRollLimit = getDayRollMax($iDay);
 $iSeed = getDaySeed($iDay);
 $iLotto = getDayLotto($iDay);
