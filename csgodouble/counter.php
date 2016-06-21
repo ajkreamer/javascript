@@ -428,6 +428,68 @@ function getDayRollMax($day) {
 			break;
 		case 209: $result = "316196";
 			break;
+		case 210: $result = "317634";
+			break;
+		case 211: $result = "319099";
+			break;
+		case 212: $result = "320595";
+			break;
+		case 213: $result = "322077";
+			break;
+		case 214: $result = "323566";
+			break;
+		case 215: $result = "325049";
+			break;
+		case 216: $result = "326531";
+			break;
+		case 217: $result = "328000";
+			break;
+		case 218: $result = "329484";
+			break;
+		case 219: $result = "330977";
+			break;
+		case 220: $result = "332490";
+			break;
+		case 221: $result = "333979";
+			break;
+		case 222: $result = "335486";
+			break;
+		case 223: $result = "336991";
+			break;
+		case 224: $result = "338486";
+			break;
+		case 225: $result = "339978";
+			break;
+		case 226: $result = "341482";
+			break;
+		case 227: $result = "342992";
+			break;
+		case 228: $result = "344503";
+			break;
+		case 229: $result = "346016";
+			break;
+		case 230: $result = "347528";
+			break;
+		case 231: $result = "349035";
+			break;
+		case 232: $result = "350533";
+			break;
+		case 233: $result = "352049";
+			break;
+		case 234: $result = "353568";
+			break;
+		case 235: $result = "355087";
+			break;
+		case 236: $result = "356604";
+			break;
+		case 237: $result = "358117";
+			break;
+		case 238: $result = "359506";
+			break;
+		case 239: $result = "361016";
+			break;
+		case 240: $result = "362528";
+			break;
 	endswitch;
 	
 	return $result;
@@ -852,6 +914,68 @@ function getDaySeed($day) {
 		case 208: $result = "4c9624a82070ac2a464da81d1bcf7018a00a6eed38a3e6e24867bbf61d5caf82";
 			break;
 		case 209: $result = "760bdd3b8de55da991636c026088b2725506bfee59a63f823ec0765f4734f864";
+			break;
+		case 210: $result = "98c2473f702eded0e437e1adf6a9a16e015556af239d6343f45f04136744f11d";
+			break;
+		case 211: $result = "4fd8d2ea534104ededa887f66545696b6442a0fbf889eaa9b83c3cbacb8b2674";
+			break;
+		case 212: $result = "45254ed1064276bdd35e145342af39d9380bb097435b18fbcb1afdc8ab3882b3";
+			break;
+		case 213: $result = "f583c8c59345c85111170bd24a65f6c0ea76835e29505cafb2cf2dc21fa895b1";
+			break;
+		case 214: $result = "6976dbaee0008e40f6e403fd850171eb38af264e8b8f2c0c39d760d209187881";
+			break;
+		case 215: $result = "4239442e42eae3f70973e445abb2362bccbe9c89ba0e7031759301b2e0a08908";
+			break;
+		case 216: $result = "3fa61d74e6136147222b494c2cde40cae2cfc8170d8e88cc6716864545729188";
+			break;
+		case 217: $result = "8991860022790a052aa52fb4aea63ab00545b91e655d001dcc96ece4e31b6002";
+			break;
+		case 218: $result = "29799da6f24cf45800a3c0be84d6fbc1e90bca9d012df347ca6571dedad4139a";
+			break;
+		case 219: $result = "3ec84ff04c1071c971316807d80746b24dbbca29e04db8f109caecf5cdee4282";
+			break;
+		case 220: $result = "51924483227801b054f3a00c14cea13e0f149956f0a93ee20b5ee21ae634811a";
+			break;
+		case 221: $result = "e6353d8b6b56316d4616f7e9332fa026524a1325003da76c83de401777d5a12f";
+			break;
+		case 222: $result = "def83cce142cb10dc1d786d94553f4d79f60ee4b76bf66f7435bc048a82d78cc";
+			break;
+		case 223: $result = "aad193fd9815bc4e4f4bad92e3c7392f9cee03d68ccc3d9ac91fd954d3e9de05";
+			break;
+		case 224: $result = "aa3239e764e16a9ce6d473a637ef07917f302dc94730d31d7a50b725c312ce93";
+			break;
+		case 225: $result = "080416277372727228d50f23a363bdb10cc92ec366b456ca81eac974b95f1412";
+			break;
+		case 226: $result = "7fd439c51f0c1226ba042879f7790faa7291f4bfb444cc0d4527c291d62eb1a2";
+			break;
+		case 227: $result = "4998ac1872fdf373b5dbe39a19da81bcc45a4e8999e0c3e89c0801d89ab85d8c";
+			break;
+		case 228: $result = "fc201cc4f8d490da0482e7351bdbc181182b2b56b1c5e56b9bc72d67bd55ec55";
+			break;
+		case 229: $result = "8580d094e3142001b1dd92a1ea69d4031fe90984bd0c4f62be9838e275c1c8d3";
+			break;
+		case 230: $result = "d9607fee22bee5489683343dbc1b85e83416cdde2d5fdb626a0a4d61a9bc1f37";
+			break;
+		case 231: $result = "69297e0167ed5f3c912554599a84be84a9a525749f498a947ce7093b8de961ee";
+			break;
+		case 232: $result = "e88caa66f9d9df445c870b1d87e8a360277ff53045c3c09ded8f561653c4a431";
+			break;
+		case 233: $result = "18585fd8b00535e1178d68bf9bbe165d1dbae48edaa19425cf1cc6c857820961";
+			break;
+		case 234: $result = "e5d2cd78eb2ddfb2cd1eada941303de741e176c34f2fa12634383ac61a4133ca";
+			break;
+		case 235: $result = "b197a3a3045e7758ea6022c2fccc9bdf05bf8ca9d01f26437756560d3e932932";
+			break;
+		case 236: $result = "bba8bae72bf85cd306beb667804d7d408e54f2401532301eea1c4a9ab82a0f8b";
+			break;
+		case 237: $result = "f8586c0e97130362a6943bc741f5cc76d869d048be9cc593565e2a682ea18d22";
+			break;
+		case 238: $result = "8f52f4c77b073164d8d099a46bb2244ad181b107c774aeb7e04cb1bfae0202a1";
+			break;
+		case 239: $result = "dfc72afe2a63502307fec88cbd0f40da1241e05adbc3ab19f5de182e4f7c1638";
+			break;
+		case 240: $result = "c06f19ad79085588b5c3f034038085316054dfafefa6f3f162a1796cbed04c91";
 			break;
 	endswitch;
 	
@@ -1278,23 +1402,88 @@ function getDayLotto($day) {
 			break;
 		case 209: $result = "2631343738";
 			break;
+		case 210: $result = "0624323538";
+			break;
+		case 211: $result = "0520223539";
+			break;
+		case 212: $result = "0513142439";
+			break;
+		case 213: $result = "0216182628";
+			break;
+		case 214: $result = "0115172627";
+			break;
+		case 215: $result = "0211132526";
+			break;
+		case 216: $result = "0712193134";
+			break;
+		case 217: $result = "0530333439";
+			break;
+		case 218: $result = "0306273639";
+			break;
+		case 219: $result = "0105091320";
+			break;
+		case 220: $result = "0413182223";
+			break;
+		case 221: $result = "0107102330";
+			break;
+		case 222: $result = "1318222439";
+			break;
+		case 223: $result = "0528333739";
+			break;
+		case 224: $result = "0208103638";
+			break;
+		case 225: $result = "1114283539";
+			break;
+		case 226: $result = "0512152235";
+			break;
+		case 227: $result = "0108133639";
+			break;
+		case 228: $result = "0913193039";
+			break;
+		case 229: $result = "1521293036";
+			break;
+		case 230: $result = "1319212438";
+			break;
+		case 231: $result = "1326293039";
+			break;
+		case 232: $result = "0106181926";
+			break;
+		case 233: $result = "0507162138";
+			break;
+		case 234: $result = "0205142627";
+			break;
+		case 235: $result = "0519212933";
+			break;
+		case 236: $result = "2025313839";
+			break;
+		case 237: $result = "0108161826";
+			break;
+		case 238: $result = "0102122023";
+			break;
+		case 239: $result = "2527293335";
+			break;
+		case 240: $result = "0611192838";
+			break;
 	endswitch;
 	
 	return $result;
 }
 
-function colorReport($color, $limit, $rollTotal, $iRoll) {
+function colorReport($color, $limit, $rollTotal, $iRoll, $iMode) {
 	$ii = 1;
 	$result = 0;
 	$success = 0;
 	
 	while ($ii <= $rollTotal) {
-		if ($color == $iRoll[$ii]) $success++;
-		else {
-			if ($success == $limit) $result++;
-			$success = 0;
+		switch ($iMode) {
+			case 0: if ($color == $iRoll[$ii]) $success++;
+				else {
+					if ($success == $limit) $result++;
+					$success = 0;
+				}
+				$ii++;
+				break;
 		}
-		$ii++;
 	}
 	
 	return($result);
@@ -1304,7 +1493,7 @@ $i = 1;
 $iRoll = array(0);
 
 $iDay = 1;
-$iDayLimit = 209; //Increment daily or run script on page
+$iDayLimit = 240; //Increment daily or run script on page
 $iRollLimit = getDayRollMax($iDay);
 $iSeed = getDaySeed($iDay);
 $iLotto = getDayLotto($iDay);
@@ -1343,41 +1532,46 @@ while ($run) {
 $totalRolls = 0;
 $count = 1;
 while ($count <= 25) {
-	$totalRolls = $totalRolls + (colorReport("green", $count, $iRollLimit, $iRoll) * $count);
+	$totalRolls = $totalRolls + (colorReport("green", $count, $iRollLimit, $iRoll, 0) * $count);
 	$count++;
 }
 
 $count = 1;
 while ($count <= 25) {
-	$totalRolls = $totalRolls + (colorReport("red", $count, $iRollLimit, $iRoll) * $count);
+	$totalRolls = $totalRolls + (colorReport("red", $count, $iRollLimit, $iRoll, 0) * $count);
 	$count++;
 }
 
 $count = 1;
 while ($count <= 25) {
-	$totalRolls = $totalRolls + (colorReport("black", $count, $iRollLimit, $iRoll) * $count);
+	$totalRolls = $totalRolls + (colorReport("black", $count, $iRollLimit, $iRoll, 0) * $count);
 	$count++;
 }
 echo($totalRolls." total rolls counted");
 
-echo("<table cellspacing='50'><tr><td>");
+echo("<table cellspacing='50'><tr>");
+echo("<td>Green</td>");
+echo("<td>Red</td>");
+echo("<td>Black</td>");
+echo("</tr><tr><td>");
+
 $count = 1;
 while ($count <= 25) {
-	echo(colorReport("green", $count, $iRollLimit, $iRoll)." <small>".$count."x greens rolled<br></small>");
+	echo(colorReport("green", $count, $iRollLimit, $iRoll, 0)." <small>".$count."x greens rolled<br></small>");
 	$count++;
 }
 echo("</td> &nbsp; <td>");
 
 $count = 1;
 while ($count <= 25) {
-	echo(colorReport("red", $count, $iRollLimit, $iRoll)." <small>".$count."x reds rolled<br></small>");
+	echo(colorReport("red", $count, $iRollLimit, $iRoll, 0)." <small>".$count."x reds rolled<br></small>");
 	$count++;
 }
 echo("</td> &nbsp; <td>");
 
 $count = 1;
 while ($count <= 25) {
-	echo(colorReport("black", $count, $iRollLimit, $iRoll)." <small>".$count."x blacks rolled<br></small>");
+	echo(colorReport("black", $count, $iRollLimit, $iRoll, 0)." <small>".$count."x blacks rolled<br></small>");
 	$count++;
 }
 echo("</td></tr></table>");
