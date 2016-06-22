@@ -4,9 +4,10 @@
 //Everything from singles all the way up to 25x-in-a-rows
 //You may just be surprised by the results!
 
-//To use this script, go to http://phptester.net/
-//Paste this entire script into the left-side box
-//Click on the "Test your PHP code" button
+//To use this script, go to http://phpfiddle.org/
+//Click on the "Codespace" tab
+//Paste this entire script into the box
+//Click on the "Run" button
 
 function getDayRollMax($day) {
 	switch ($day):
@@ -1469,32 +1470,14 @@ function getDayLotto($day) {
 	return $result;
 }
 
-function colorReport($color, $limit, $rollTotal, $iRoll, $iMode) {
-	$ii = 1;
-	$result = 0;
-	$success = 0;
-	
-	while ($ii <= $rollTotal) {
-		switch ($iMode) {
-			case 0: if ($color == $iRoll[$ii]) $success++;
-				else {
-					if ($success == $limit) $result++;
-					$success = 0;
-				}
-				$ii++;
-				break;
-		}
-	}
-	
-	return($result);
-}
-
 $i = 1;
 $iRoll = array(0);
 
 $iDay = 1;
-$iDayLimit = 240; //Increment daily or run script on page
+$iDayLimit = 240;
 $iRollLimit = getDayRollMax($iDay);
+$iiRollLimit = getDayRollMax($iDayLimit);
+echo("<input id='rollLimit' type='hidden' value='".$iiRollLimit."'>");
 $iSeed = getDaySeed($iDay);
 $iLotto = getDayLotto($iDay);
 
@@ -1511,7 +1494,10 @@ while ($run) {
 	else $color = "red";
 	
 	//Store color value into array
-	array_push($iRoll, $color);
+	//array_push($iRoll, $color);
+	
+	//Output hidden data fields for Javascript use
+	echo("<input class='rolls' type='hidden' value='".$color."'>");
 	
 	//Increment the counter
 	$i++;
@@ -1529,51 +1515,174 @@ while ($run) {
 	}
 }
 
-$totalRolls = 0;
-$count = 1;
-while ($count <= 25) {
-	$totalRolls = $totalRolls + (colorReport("green", $count, $iRollLimit, $iRoll, 0) * $count);
-	$count++;
-}
-
-$count = 1;
-while ($count <= 25) {
-	$totalRolls = $totalRolls + (colorReport("red", $count, $iRollLimit, $iRoll, 0) * $count);
-	$count++;
-}
-
-$count = 1;
-while ($count <= 25) {
-	$totalRolls = $totalRolls + (colorReport("black", $count, $iRollLimit, $iRoll, 0) * $count);
-	$count++;
-}
-echo($totalRolls." total rolls counted");
-
-echo("<table cellspacing='50'><tr>");
-echo("<td>Green</td>");
-echo("<td>Red</td>");
-echo("<td>Black</td>");
-echo("</tr><tr><td>");
-
-$count = 1;
-while ($count <= 25) {
-	echo(colorReport("green", $count, $iRollLimit, $iRoll, 0)." <small>".$count."x greens rolled<br></small>");
-	$count++;
-}
-echo("</td> &nbsp; <td>");
-
-$count = 1;
-while ($count <= 25) {
-	echo(colorReport("red", $count, $iRollLimit, $iRoll, 0)." <small>".$count."x reds rolled<br></small>");
-	$count++;
-}
-echo("</td> &nbsp; <td>");
-
-$count = 1;
-while ($count <= 25) {
-	echo(colorReport("black", $count, $iRollLimit, $iRoll, 0)." <small>".$count."x blacks rolled<br></small>");
-	$count++;
-}
-echo("</td></tr></table>");
+echo("<table cellspacing='25'><tr>");
+echo("<td id='status' valign='top' align='right'>Status<br><br><small>Calculating roll history...</td>");
+echo("<td id='green' valign='top' align='right'>Green<br><br></td>");
+echo("<td id='red' valign='top' align='right'>Red<br><br></td>");
+echo("<td id='black' valign='top' align='right'>Black<br><br></td>");
+echo("<td id='rainbow' valign='top' align='right'>Rainbow<br><br></td>");
+echo("<td id='greenw' valign='top' align='right'>Green<br><br></td>");
+echo("<td id='redw' valign='top' align='right'>Red<br><br></td>");
+echo("<td id='blackw' valign='top' align='right'>Black<br><br></td>");
+echo("</tr></table>");
 
 ?>
+
+<script>
+	roll = [0];
+	
+	function feedUpdate(line) {
+		statusFeed = document.getElementById('status').innerHTML;
+		document.getElementById('status').innerHTML = statusFeed + line;
+	}
+	
+	function statsUpdate(color, line) {
+		stats = document.getElementById(color).innerHTML;
+		document.getElementById(color).innerHTML = stats + line;
+	}
+	
+	function dataStore() {
+		i = 0;
+		
+		limit = document.getElementById('rollLimit').value;
+		limit = Number(limit);
+		
+		while (i < limit) {
+			value = document.getElementsByClassName('rolls');
+			value = value[i].value;
+			roll.push(value);
+			i = i + 1;
+		}
+	}
+	
+	function colorReport(color, limit, rollTotal, iRoll, iMode) {
+		ii = 0;
+		result = 0;
+		success = 0;
+		last = "";
+		
+		while (ii <= rollTotal) {
+			switch (iMode) {
+				//Evaluate trains
+				case 0: //Evaluate rainbows or trains?
+					if (color == "rainbow") {
+						if (iRoll[ii] != last) success = success + 1;
+						else {
+							if (success == limit) result = result + 1;
+							success = 0;
+						}
+						last = iRoll[ii];
+					}
+					else {
+						if (color == iRoll[ii]) success = success + 1;
+						else {
+							if (success == limit) result = result + 1;
+							success = 0;
+						}
+					}
+					ii = ii + 1;
+					break;
+				//Evaluate droughts
+				case 1: //Evaluate rainbows or trains?
+					if (color == "rainbow") {
+						if (iRoll[ii] == last) success = success + 1;
+						else {
+							if (success == limit) result = result + 1;
+							success = 0;
+						}
+						last = iRoll[ii];
+					}
+					else {
+						if (color != iRoll[ii]) success = success + 1;
+						else {
+							if (success == limit) result = result + 1;
+							success = 0;
+						}
+						ii = ii + 1;
+					}
+					break;
+			}
+		}
+	
+	return(result);
+	}
+	
+	feedUpdate("<small>Done!<br>Collecting data...");
+	dataStore();
+	feedUpdate("<small>Done!<br>Outputting data..");
+	
+	limiter = document.getElementById('rollLimit').value;
+	limiter = Number(limiter);
+	
+	//Count green trains
+	count = 1;
+	while (count <= 5) {
+		result = colorReport('green', count, limiter, roll, 0);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x green train<br></small>";
+		count++;
+		statsUpdate('green', result)
+	}
+	
+	//Count red trains
+	count = 1;
+	while (count <= 25) {
+		result = colorReport('red', count, limiter, roll, 0);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x red train<br></small>";
+		count++;
+		statsUpdate('red', result)
+	}
+	
+	//Count black trains
+	count = 1;
+	while (count <= 25) {
+		result = colorReport('black', count, limiter, roll, 0);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x black train<br></small>";
+		count++;
+		statsUpdate('black', result)
+	}
+	
+	//Count rainbows
+	count = 1;
+	while (count <= 25) {
+		result = colorReport('rainbow', count, limiter, roll, 0);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x rainbow<br></small>";
+		count++;
+		statsUpdate('rainbow', result)
+	}
+	
+	//Count green droughts
+	count = 1;
+	while (count <= 150) {
+		result = colorReport('green', count, limiter, roll, 1);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x green drought<br></small>";
+		count++;
+		statsUpdate('greenw', result)
+	}
+	
+	//Count red droughts
+	count = 1;
+	while (count <= 25) {
+		result = colorReport('red', count, limiter, roll, 1);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x red drought<br></small>";
+		count++;
+		statsUpdate('redw', result)
+	}
+	
+	//Count black droughts
+	count = 1;
+	while (count <= 25) {
+		result = colorReport('black', count, limiter, roll, 1);
+		result = String(result);
+		result = "<small> " + result + " " + count + "x black drought<br></small>";
+		count++;
+		statsUpdate('blackw', result)
+	}
+	
+	feedUpdate("<small>Done!</small>");
+</script>
