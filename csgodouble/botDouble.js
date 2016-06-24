@@ -35,7 +35,7 @@ var rollid = 0,
 	colorMode = 0,
 	strat = 0,
 	wager = [0, 0, 0],
-	versionId = "1.1.7";
+	versionId = "1.1.8";
 
 function themeSet(i) {
 	var style;
@@ -64,7 +64,7 @@ function optionsAdd() {
             '<div class="col-lg-3">' +
 				'<ul class="list-group">' +
 					'<li class="list-group-item"><span class="badge">v' + versionId + '</span>' +
-						'<h4>DoubleDong<sup>&trade;</sup> Bot</h4><small>Automated bot for betting on csgodouble.com<br>Written by <a href="https://steamcommunity.com/profiles/76561198098227534/" target="_blank"><b>&#9733; Dong</b></a><br>Check <a href="https://github.com/ajkreamer/javascript/blob/master/bots/botDouble.js" target="_blank">GitHub</a> to make sure version ' + versionId + ' is the latest version of the DoubleDong bot</small>' +
+						'<h4>DoubleDong<sup>&trade;</sup> Bot</h4><small>Automated bot for betting on csgodouble.com<br>Written by <a href="https://steamcommunity.com/profiles/76561198098227534/" target="_blank"><b>&#9733; Dong</b></a><br>Check <a href="https://github.com/ajkreamer/tools/blob/master/csgodouble/botDouble.js" target="_blank">GitHub</a> to make sure version ' + versionId + ' is the latest version of the DoubleDong bot</small>' +
 					'</li>' +
 				'</ul>' +
 				'<h3>Bot controls:</h3>' +
