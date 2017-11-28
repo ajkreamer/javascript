@@ -100,6 +100,8 @@ function dataGet(type, option) {
 			case "illegalChars": return(["'", ","]);
 			//Array of illegal words for sanitation
 			case "illegalWords": return([]);
+			//Array of Materialize color classes
+			case "materializeColorClasses": return(["red", "orange", "yellow darken-1", "lime darken-1", "green", "teal", "blue", "indigo", "purple", "pink lighten-1"]);
 		}
 	}
 	else if (type == "form") {
@@ -179,6 +181,8 @@ function dataGet(type, option) {
 			case "timerTempElement": return(5000);
 			//Time for toasts to exist on-screen
 			case "timerToast": return(2500);
+			//Time delay before tooltip pops up
+			case "timerTooltipDelay": return(50);
 			//Delay between checking if all scripts are loaded
 			case "timerScriptCheck": return(25);
 			//Initial index.cfm delay before script checking
@@ -278,7 +282,7 @@ function initialize() {
 	//Initialize Materialize timepicker
 	if ($('.timepicker').length) $('.timepicker').pickatime();
 	//Initialize Materialize tooltips
-	if ($('.tooltip').length) $('.tooltipped').tooltip();
+	if ($('.tooltipped').length) $('.tooltipped').tooltip({delay: dataGet("int", "timerTooltipDelay")});
 	
 	//console.log("Initialization successfully finished!");
 }
