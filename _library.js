@@ -8,38 +8,53 @@
 //REQUIRES JQUERY, MATERIALIZE, MASKED INPUT
 
 //Function to send and receive data via ajax
-$.fn.ajax = function(options) {
+//$.fn.ajax = function(options) {
+function ajax(action, data, target, functions) {
 	//console.log("Beginning Ajax transmission...");
 	
-	//Define setting defaults
-	var settings = $.extend({
-		action: null,
-		form: null,
-		target: null
-	}, options);
 	//Define variables
 	var method;
+	function onError(runFunction) {
+		//Define what to do on ajax page failure
+		if (
+			(runFunction == undefined)
+			|| (runFunction == "")
+		) toastShowMessage("error", "");
+		else runFunction;
+	}
+	function onSuccess(runFunction) {
+		//Define what to do on ajax page success
+		if (
+			(runFunction == undefined)
+			|| (runFunction == "")
+		) toastShowMessage("success", "");
+		else runFunction;
+	}
 	
-	if (settings.action == "getContent") method = "GET";
+	//Define the transmission method
+	if (action == "getContent") method = "GET";
 	else method = "POST";
 	
-	if (settings.action == "getContent")  {
+	//The data variable passed in is now the target for pasting the retrieved HTML
+	if (action == "getContent") {
 		//console.log("Getting external content...");
 		
 		$.ajax({
 			cache: false,
-			error: function() {
-				toastShowMessage("error", "");
-			},
-			success: function(data) {
+			error: onError(functions[1]),
+			success: function(newData) {
 				//console.log("Data collected, inserting to target element...");
-
-				settings.target.html(data);
+				
+				//Insert returned data to the target
+				data.html(newData);
+				
+				//Fire success function
+				onSuccess(functions[0]);
 				
 				//console.log("Data successfully inserted!");
 			},
 			type: method,
-			url: this
+			url: target
 		});
 		
 		//console.log("Content successfully returned!");
@@ -49,14 +64,15 @@ $.fn.ajax = function(options) {
 		
 		$.ajax({
 			cache: false,
-			error: function() {
-				toastShowMessage("error", "");
-			},
+			error: onError(functions[1]),
 			success: function(data) {
 				//console.log(file + " has been successfully run!");
+				
+				//Fire success function
+				onSuccess(functions[0]);
 			},
 			type: method,
-			url: this
+			url: target
 		});
 		
 		//console.log("File successfully run!");
@@ -69,21 +85,22 @@ $.fn.ajax = function(options) {
 			contentType: false,
 			data: form,
 			enctype: "multipart/form-data",
-			error: function() {
-				toastShowMessage("error", "");
-			},
+			error: onError(functions[1]),
 			processData: false,
-			success: function(data) {
+			success: function(newData) {
 				//console.log("Form successfully processed!");
+				
+				//Fire success function
+				onSuccess(functions[0]);
 			},
 			type: method,
-			url: this
+			url: target
 		});
 		
 		//console.log("Form submission successfully completed!");
 	}
 	//console.log("Ajax transmission successfully completed!");
-};
+}
 
 //Function to return various types of data
 function dataGet(type, option) {
@@ -100,8 +117,6 @@ function dataGet(type, option) {
 			case "illegalChars": return(["'", ","]);
 			//Array of illegal words for sanitation
 			case "illegalWords": return([]);
-			//Array of Materialize color classes
-			case "materializeColorClasses": return(["red", "orange", "yellow darken-1", "lime darken-1", "green", "teal", "blue", "indigo", "purple", "pink lighten-1"]);
 		}
 	}
 	else if (type == "form") {
@@ -181,8 +196,6 @@ function dataGet(type, option) {
 			case "timerTempElement": return(5000);
 			//Time for toasts to exist on-screen
 			case "timerToast": return(2500);
-			//Time delay before tooltip pops up
-			case "timerTooltipDelay": return(50);
 			//Delay between checking if all scripts are loaded
 			case "timerScriptCheck": return(25);
 			//Initial index.cfm delay before script checking
@@ -282,7 +295,7 @@ function initialize() {
 	//Initialize Materialize timepicker
 	if ($('.timepicker').length) $('.timepicker').pickatime();
 	//Initialize Materialize tooltips
-	if ($('.tooltipped').length) $('.tooltipped').tooltip({delay: dataGet("int", "timerTooltipDelay")});
+	if ($('.tooltip').length) $('.tooltipped').tooltip();
 	
 	//console.log("Initialization successfully finished!");
 }
