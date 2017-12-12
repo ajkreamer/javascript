@@ -8,7 +8,6 @@
 //REQUIRES JQUERY, MATERIALIZE, MASKED INPUT
 
 //Function to send and receive data via ajax
-//$.fn.ajax = function(options) {
 function ajax(action, data, target, functions) {
 	//console.log("Beginning Ajax transmission...");
 	
@@ -122,6 +121,7 @@ function dataGet(type, option) {
 	else if (type == "form") {
 		//console.log("Assembling form data...");
 		
+		//Check to make sure only 2 arrays were passed
 		if (option.length == 2) {
 			var fieldName = option[0],
 				fieldValue = option[1];
@@ -171,6 +171,7 @@ function dataGet(type, option) {
 			if (
 				(option.eq(i).val() == "")
 				&& (!option.eq(i).prop("disabled"))
+				&& (option.eq(i).attr("type") != "checkbox")
 			) blanks++;
 		}
 
